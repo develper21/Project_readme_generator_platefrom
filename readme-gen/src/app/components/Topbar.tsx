@@ -1,12 +1,14 @@
+import React from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
-import React from "react";
 
 const Topbar: NextPage = () => {
   return (
-    <header
-      className="w-full h-20 bg-[#687ad5] border-[3px] border-[#4a4646] shadow-[10px_4px_10px_rgba(0,0,0,0.25)]"
-        style={{ boxSizing: "border-box", fontFamily: "Impact" }}>
+    <header className="fixed w-full h-20 bg-[#687ad5] border-[3px] border-[#4a4646] shadow-[10px_4px_10px_rgba(0,0,0,0.25)]"
+      style={{ 
+        boxSizing: "border-box", 
+        fontFamily: "Impact" 
+      }}>
 
       <div className="max-w-[1280px] mx-auto h-full px-4 md:px-8 flex items-center justify-between">
         <div className="flex items-center">
