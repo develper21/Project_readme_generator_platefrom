@@ -11,13 +11,15 @@ export default function Home() {
   return (
     <>
       <Topbar />
-      <ContentSection />
-      <Footer />
-      {/* <Page /> */}
-      {/* <TermServices /> */}
-      {/* <PrivacyPolicy /> */}
-      {/* <ProjectsSection /> */}
-      {/* <Setting /> */}
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <ContentSection />
+        <Footer />
+        {/* <Page /> */}
+        {/* <TermServices /> */}
+        {/* <PrivacyPolicy /> */}
+        {/* <ProjectsSection /> */}
+        {/* <Setting /> */}
+      </main>
     </>
   );
 }
