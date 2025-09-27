@@ -1,15 +1,13 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import { Eye, EyeOff, Github, X } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SignUp() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-
-  // NEW: form state + loading
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -19,7 +17,6 @@ export default function SignUp() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (loading) return;
-    // basic validations
     if (!email || !password) {
       alert("Please enter email and password.");
       return;
@@ -38,7 +35,6 @@ export default function SignUp() {
       });
 
       if (res.status === 201) {
-        // Created: auto sign in
         const sign = await signIn("credentials", {
           redirect: false,
           email,
@@ -48,11 +44,9 @@ export default function SignUp() {
         if (sign && (sign as any).ok) {
           router.push("/dashboard");
         } else {
-          // fallback: go to signin page
           router.push("/auth/signin");
         }
       } else if (res.status === 409) {
-        // User exists -> try sign in directly
         const sign = await signIn("credentials", {
           redirect: false,
           email,
@@ -77,8 +71,8 @@ export default function SignUp() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black px-4">
-      <div className="relative w-full max-w-md bg-white rounded-2xl shadow-xl p-8 border border-blue-500">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="relative w-full max-w-md rounded-2xl shadow-xl p-8 border">
         <Link href="/" className="absolute top-4 right-4 text-gray-500 hover:text-black">
           <X size={20} />
         </Link>
@@ -87,7 +81,7 @@ export default function SignUp() {
           Sign Up
         </h1>
 
-        <button className="w-full flex items-center justify-center gap-2 border border-gray-400 py-3 rounded-md hover:bg-gray-50 transition font-medium" onClick={() => signIn("github", { callbackUrl: "/dashboard" })}>
+        <button className="w-full flex items-center justify-center gap-2 cursor-pointer border border-gray-400 py-3 rounded-md hover:bg-gray-50 transition font-medium" onClick={() => signIn("github", { callbackUrl: "/dashboard" })}>
           <Github size={20} /> Continue with GitHub
         </button>
 
@@ -97,7 +91,6 @@ export default function SignUp() {
           <div className="flex-1 h-px bg-gray-300"></div>
         </div>
 
-        {/* NOTE: we added onSubmit and controlled inputs only */}
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-sm font-semibold text-gray-600 mb-1">
@@ -141,11 +134,11 @@ export default function SignUp() {
               >
                 {showPassword ? (
                   <>
-                    <EyeOff size={18} /> <span className="ml-1 text-xs">Hide</span>
+                    <EyeOff size={18} />
                   </>
                 ) : (
                   <>
-                    <Eye size={18} /> <span className="ml-1 text-xs">Show</span>
+                    <Eye size={18} />
                   </>
                 )}
               </button>
@@ -162,7 +155,6 @@ export default function SignUp() {
             </a>
           </div>
 
-          {/* keep button text/design same; just disable while loading */}
           <button
             type="submit"
             disabled={loading}
