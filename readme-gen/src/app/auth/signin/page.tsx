@@ -1,15 +1,13 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
-import { Eye, EyeOff, Github } from "lucide-react";
+import { Eye, EyeOff, Github, X } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-
-  // NEW: state for inputs + loading
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -40,17 +38,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black/70 px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 relative">
+    <div className="flex items-center justify-center min-h-screen px-4">
+      <div className="w-full max-w-md rounded-2xl shadow-xl p-8 relative border">
         <Link href="/" className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-          ✕
+          <X size={20} />
         </Link>
 
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-900">
           Log in
         </h1>
 
-        <button className="w-full flex items-center justify-center gap-2 border border-gray-400 py-3 rounded-lg hover:bg-gray-50 transition font-medium mb-4" onClick={() => signIn("github", { callbackUrl: "/dashboard" })}>
+        <button className="w-full flex items-center cursor-pointer justify-center gap-2 border border-gray-400 py-3 rounded-lg hover:bg-gray-50 transition font-medium mb-4" onClick={() => signIn("github", { callbackUrl: "/dashboard" })}>
           <Github className="w-5 h-5" /> Continue with GitHub
         </button>
 
@@ -60,17 +58,15 @@ export default function LoginPage() {
           <div className="flex-1 h-px bg-gray-300"></div>
         </div>
 
-        {/* added controlled inputs and form submit */}
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">
+            <label className="text-sm font-medium text-gray-600 block mb-1">
               Email or phone number
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
               className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -81,14 +77,14 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="flex items-center text-sm text-gray-500 hover:text-gray-700">
+                className="flex items-center text-sm text-gray-600 hover:text-gray-700">
                 {showPassword ? (
                   <>
-                    <EyeOff size={16} className="mr-1" /> Hide
+                    <EyeOff size={18} />
                   </>
                 ) : (
                   <>
-                    <Eye size={16} className="mr-1" /> Show
+                    <Eye size={18} />
                   </>
                 )}
               </button>
@@ -97,7 +93,6 @@ export default function LoginPage() {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
               className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
