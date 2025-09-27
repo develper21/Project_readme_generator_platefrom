@@ -1,9 +1,8 @@
 "use client";
-import React, { FunctionComponent } from "react";
 import Topbar from "../components/Topbar";
 import Footer from "../components/Footer";
 
-const PrivacyPolicy: FunctionComponent = () => {
+export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Topbar />
@@ -12,7 +11,7 @@ const PrivacyPolicy: FunctionComponent = () => {
 
         <article className="space-y-6 text-sm sm:text-base leading-relaxed">
           <p>
-            This Privacy Policy ("Policy") explains how GitDocify ("we," "us," or "our") collects, uses, discloses, and protects your
+            This Privacy Policy (&quot;Policy&quot;) explains how GitDocify (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects your
             personal data when you use our web application. By using the Application, you consent to the practices outlined in this Policy.
             If you disagree with the terms of this Policy, please refrain from using the platform.
           </p>
@@ -98,6 +97,4 @@ const PrivacyPolicy: FunctionComponent = () => {
       <Footer />
     </div>
   );
-};
-
-export default PrivacyPolicy;
+}
