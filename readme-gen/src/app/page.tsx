@@ -1,6 +1,6 @@
 import Topbar from "./components/Topbar";
 import Footer from "./components/Footer";
-import Page from "./dashboard/page";
+import Page from "./dashboard/layout";
 import ContentSection from "./components/ContentSection";
 import TermServices from "./Term&Services/page";
 import PrivacyPolicy from "./PrivacyPolicy/page";
@@ -10,16 +10,14 @@ import Setting from "./components/Setting";
 export default function Home() {
   return (
     <>
-      <Topbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <ContentSection />
-        <Footer />
-        {/* <Page /> */}
-        {/* <TermServices /> */}
-        {/* <PrivacyPolicy /> */}
-        {/* <ProjectsSection /> */}
-        {/* <Setting /> */}
-      </main>
+      {/* <Topbar /> */}
+      <ContentSection />
+      {/* <Footer /> */}
+      {/* <Page /> */}
+      {/* <TermServices /> */}
+      {/* <PrivacyPolicy /> */}
+      {/* <ProjectsSection /> */}
+      {/* <Setting /> */}
     </>
   );
 }

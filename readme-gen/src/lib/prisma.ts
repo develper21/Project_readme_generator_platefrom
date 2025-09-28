@@ -1,7 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
 declare global {
-  // prevent multiple instances in dev
   var prisma: PrismaClient | undefined;
 }
 

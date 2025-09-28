@@ -26,7 +26,6 @@ export const authOptions: AuthOptions = {
         if (!user || !user.password) return null;
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
-        // NextAuth expects an object with at least id and email
         return { id: user.id, email: user.email, name: user.name };
       },
     }),
@@ -36,7 +35,6 @@ export const authOptions: AuthOptions = {
   callbacks: {
     async session({ session, user }) {
       if (session.user) {
-        // attach user.id to session.user
         (session.user as any).id = user.id;
       }
       return session;
