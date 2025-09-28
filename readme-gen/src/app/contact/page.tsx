@@ -3,7 +3,7 @@ import { FiMail, FiHelpCircle, FiChevronDown } from "react-icons/fi";
 import Topbar from "../components/Topbar";
 import Footer from "../components/Footer";
 
-const ContactPage: NextPage = () => {
+const ContactPage = () => {
   return (
     <div className="w-full min-h-screen bg-white flex flex-col">
       <Topbar />
