@@ -1,8 +1,7 @@
 "use client";
-
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
-import { Lock, Bell, Shield, User, Mail, Phone, Globe, Eye } from "lucide-react";
+import { Bell, Shield, User, Eye } from "lucide-react";
 
 export default function Setting() {
   const [emailNotifications, setEmailNotifications] = useState(true);
