@@ -1,23 +1,9 @@
-import Topbar from "./components/Topbar";
-import Footer from "./components/Footer";
-import Page from "./dashboard/layout";
-import ContentSection from "./components/ContentSection";
-import TermServices from "./Term&Services/page";
-import PrivacyPolicy from "./PrivacyPolicy/page";
-import ProjectsSection from "./components/ProjectSection";
-import Setting from "./components/Setting";
+import LandingPage from "./components/LandingPage";
 
 export default function Home() {
   return (
     <>
-      {/* <Topbar /> */}
-      <ContentSection />
-      {/* <Footer /> */}
-      {/* <Page /> */}
-      {/* <TermServices /> */}
-      {/* <PrivacyPolicy /> */}
-      {/* <ProjectsSection /> */}
-      {/* <Setting /> */}
+      <LandingPage />
     </>
   );
 }
