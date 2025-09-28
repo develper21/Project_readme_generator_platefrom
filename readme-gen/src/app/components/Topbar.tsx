@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Topbar: NextPage = () => {
   return (
-    <header className="fixed w-full h-20 bg-[#687ad5] border-[3px] border-[#4a4646] shadow-[10px_4px_10px_rgba(0,0,0,0.25)]"
+    <header className="w-full h-20 bg-[#687ad5] border-[3px] border-[#4a4646] shadow-[10px_4px_10px_rgba(0,0,0,0.25)]"
       style={{ 
         boxSizing: "border-box", 
         fontFamily: "Impact" 
