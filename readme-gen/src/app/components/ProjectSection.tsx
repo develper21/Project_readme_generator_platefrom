@@ -5,7 +5,7 @@ type Project = {
   id: number;
   title: string;
   visibility: "Public" | "Private" | "Archived";
-  short: string[]; // two-line short description
+  short: string[];
   tech: { name: string; count?: number }[];
   updated: string;
 };
