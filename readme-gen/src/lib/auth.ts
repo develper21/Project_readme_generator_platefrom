@@ -11,6 +11,11 @@ export const authOptions: AuthOptions = {
     GithubProvider({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
+      authorization: {
+        params: {
+          scope: "read:user user:email repo",
+        },
+      },
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -30,12 +35,26 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  session: { strategy: "database" },
+  session: { strategy: "jwt" },
   pages: { signIn: "/auth/signin" },
   callbacks: {
-    async session({ session, user }) {
+    async jwt({ token, account, user }) {
+      // Store access token on initial sign in
+      if (account) {
+        token.accessToken = account.access_token;
+        token.provider = account.provider;
+      }
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      // Pass access token to session
+      (session as any).accessToken = token.accessToken;
+      (session as any).provider = token.provider;
       if (session.user) {
-        (session.user as any).id = user.id;
+        (session.user as any).id = token.id;
       }
       return session;
     },
