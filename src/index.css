@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 20% 96%;
+    --foreground: 160 30% 15%;
+
+    --card: 140 25% 97%;
+    --card-foreground: 160 30% 15%;
+
+    --popover: 140 25% 97%;
+    --popover-foreground: 160 30% 15%;
+
+    --primary: 160 45% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 30% 90%;
+    --secondary-foreground: 160 30% 20%;
+
+    --muted: 140 15% 92%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 45 90% 15%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 160 45% 40%;
+
+    --radius: 1.25rem;
+
+    --clay-shadow: 8px 8px 16px hsl(140 15% 82%), -4px -4px 12px hsl(0 0% 100%);
+    --clay-shadow-sm: 4px 4px 8px hsl(140 15% 84%), -2px -2px 6px hsl(0 0% 100%);
+    --clay-shadow-lg: 12px 12px 24px hsl(140 15% 78%), -6px -6px 18px hsl(0 0% 100%);
+    --clay-shadow-inset: inset 4px 4px 8px hsl(140 15% 84%), inset -2px -2px 6px hsl(0 0% 100%);
+    --clay-shadow-pressed: inset 4px 4px 10px hsl(140 15% 80%), inset -3px -3px 8px hsl(0 0% 100%);
+
+    --gradient-hero: linear-gradient(135deg, hsl(160 45% 40%), hsl(140 50% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(140 25% 98%), hsl(140 20% 94%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 90% 60%), hsl(35 85% 55%));
+
+    --sidebar-background: 140 20% 96%;
+    --sidebar-foreground: 160 30% 15%;
+    --sidebar-primary: 160 45% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 30% 90%;
+    --sidebar-accent-foreground: 160 30% 20%;
+    --sidebar-border: 140 15% 88%;
+    --sidebar-ring: 160 45% 40%;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 140 20% 92%;
+    --card: 160 18% 12%;
+    --card-foreground: 140 20% 92%;
+    --popover: 160 18% 12%;
+    --popover-foreground: 140 20% 92%;
+    --primary: 160 45% 50%;
+    --primary-foreground: 160 30% 8%;
+    --secondary: 160 20% 18%;
+    --secondary-foreground: 140 20% 90%;
+    --muted: 160 15% 16%;
+    --muted-foreground: 140 10% 55%;
+    --accent: 45 80% 55%;
+    --accent-foreground: 45 90% 10%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 15% 18%;
+    --input: 160 15% 18%;
+    --ring: 160 45% 50%;
+    --clay-shadow: 8px 8px 16px hsl(160 20% 5%), -4px -4px 12px hsl(160 15% 15%);
+    --clay-shadow-sm: 4px 4px 8px hsl(160 20% 5%), -2px -2px 6px hsl(160 15% 15%);
+    --clay-shadow-lg: 12px 12px 24px hsl(160 20% 4%), -6px -6px 18px hsl(160 15% 16%);
+    --clay-shadow-inset: inset 4px 4px 8px hsl(160 20% 6%), inset -2px -2px 6px hsl(160 15% 16%);
+    --clay-shadow-pressed: inset 4px 4px 10px hsl(160 20% 5%), inset -3px -3px 8px hsl(160 15% 14%);
+    --gradient-hero: linear-gradient(135deg, hsl(160 45% 50%), hsl(140 50% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(160 18% 14%), hsl(160 15% 10%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 80% 55%), hsl(35 75% 45%));
+    --sidebar-background: 160 20% 8%;
+    --sidebar-foreground: 140 20% 92%;
+    --sidebar-primary: 160 45% 50%;
+    --sidebar-primary-foreground: 160 30% 8%;
+    --sidebar-accent: 160 20% 18%;
+    --sidebar-accent-foreground: 140 20% 90%;
+    --sidebar-border: 160 15% 18%;
+    --sidebar-ring: 160 45% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .clay {
+    background: var(--gradient-card);
+    box-shadow: var(--clay-shadow);
+    border-radius: var(--radius);
+  }
+  .clay-sm {
+    background: var(--gradient-card);
+    box-shadow: var(--clay-shadow-sm);
+    border-radius: var(--radius);
+  }
+  .clay-lg {
+    background: var(--gradient-card);
+    box-shadow: var(--clay-shadow-lg);
+    border-radius: var(--radius);
+  }
+  .clay-pressed {
+    box-shadow: var(--clay-shadow-pressed);
+  }
+  .clay-inset {
+    box-shadow: var(--clay-shadow-inset);
+  }
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-accent-gradient {
+    background: var(--gradient-accent);
+  }
+}
